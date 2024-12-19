@@ -45,9 +45,8 @@ const Header=()=>
             </div>
         {user &&
             <div className="flex flex-row">
-                <p className="m-4">{user.displayName}</p>
                 <img className="w-10 m-4 h-10 rounded-xl" src={user.photoURL} alt="dummy"></img>
-                <button onClick={handleSignOut} className="text-white font-bold">Sign out </button>
+                <button onClick={handleSignOut} className="text-white font-bold mr-8">Sign out </button>
             </div>}
         </div>
         </>
