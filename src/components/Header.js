@@ -6,6 +6,10 @@ import { useNavigate } from "react-router-dom";
 import { addUser, removeUser } from "../utils/Slices/userSlice";
 import {useDispatch,} from 'react-redux'
 import { useEffect } from "react";
+import { toggleShowGptSearch } from "../utils/Slices/gptSlice";
+import { SUPPORTED_LANGUAGES } from "../constants/constants";
+import { addUpcomingMovies } from "../utils/Slices/moviesSlice";
+import { addUserLanguage } from "../utils/Slices/languageConfigSlice";
 
 const Header=()=>
 {
@@ -19,8 +23,8 @@ const Header=()=>
         });
     }
     const user=useSelector((store)=>store.user);
-        const dispatch=useDispatch()
-        useEffect(()=>
+    const dispatch=useDispatch()
+    useEffect(()=>
         {
           onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -37,6 +41,15 @@ const Header=()=>
           });
         },[])
 
+    const handleGptToggle=()=>
+    {
+      dispatch(toggleShowGptSearch())
+    }
+    const handleLanguageChange=(e)=>
+    {
+      dispatch(addUserLanguage(e.target.value));
+    }
+
     return(
         <>
         <div className="absolute w-screen bg-gradient-to-b z-10 from-black flex flex-row justify-between">
@@ -44,7 +57,11 @@ const Header=()=>
                 <img className="w-44 " src={NETFLIX_LOGO} alt="netflix_logo"/>    
             </div>
         {user &&
-            <div className="flex flex-row">
+            <div className="flex items-center"> 
+                <select onChange={handleLanguageChange} className="px-3 py-1 mr-3 bg-slate-500 rounded-lg text-white focus:outline-none">
+                  {SUPPORTED_LANGUAGES.map((lang)=> <option value={lang.value}> {lang.identfier}</option>)}
+                </select>
+                <button onClick={handleGptToggle} className="bg-blue-700 text-white rounded-lg px-3 py-1 h-8 text-center">GPT Search</button>
                 <img className="w-10 m-4 h-10 rounded-xl" src={user.photoURL} alt="dummy"></img>
                 <button onClick={handleSignOut} className="text-white font-bold mr-8">Sign out </button>
             </div>}
