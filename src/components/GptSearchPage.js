@@ -1,9 +1,12 @@
 import { NETFLIX_HOME_SCREEN_IMAGE } from "../constants/Images"
 import GptSearchBar from "./GptSearchBar"
-import GptSearchMovies from "./GptSearchMovies"
+import GptSearchMovies from "./GptSearchMovies";
+import {useSelector} from "react-redux"
 
 const GptSearchPage=()=>
 {
+    const gptMovies=useSelector((store)=>store.gpt.gptMovies)
+
     return (
         <> 
             <div>
@@ -12,7 +15,8 @@ const GptSearchPage=()=>
             <div >
 
                 <GptSearchBar/>
-                <GptSearchMovies/>
+                {gptMovies && <GptSearchMovies/>}
+                
             </div>
         </>
     )

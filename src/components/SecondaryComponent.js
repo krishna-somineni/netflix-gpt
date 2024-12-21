@@ -10,10 +10,10 @@ const SecondaryComponent=()=>
                 movies.nowPlayingMovies        &&   
                 <div className="relative -mt-56">
 
-                  <Movielist title={"Now Playing Movies"} movies={movies.nowPlayingMovies}/>
-                  <Movielist title={"Popular Movies"} movies={movies.popularMovies}/>
-                  <Movielist title={"Top Rated movies"} movies={movies.topRatedMovies}/>
-                  <Movielist title={"Upcoming Movies"} movies={movies.upcomingMovies}/>
+                  <Movielist title={"Now Playing Movies"} type="movies" movies={movies.nowPlayingMovies}/>
+                  <Movielist title={"Popular Movies"} type="movies" movies={movies.popularMovies}/>
+                  <Movielist title={"Top Rated movies"} type="movies" movies={movies.topRatedMovies}/>
+                  <Movielist title={"Upcoming Movies"} type="movies"  movies={movies.upcomingMovies}/>
 
                   </div>
 
