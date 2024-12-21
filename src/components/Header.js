@@ -56,12 +56,12 @@ const Header=()=>
 
     return(
         <>
-        <div className="fixed w-screen bg-gradient-to-b z-10 from-black flex flex-row justify-between">
+        <div className="fixed w-screen bg-gradient-to-b z-10 from-black flex flex-row justify-between  max-sm:flex max-sm:flex-col">
             <div>
-                <img className="w-44 " src={NETFLIX_LOGO} alt="netflix_logo"/>    
+                <img className="w-44 max-sm:mx-auto" src={NETFLIX_LOGO} alt="netflix_logo"/>    
             </div>
         {user &&
-            <div className="flex items-center"> 
+            <div className="flex items-center max-sm:flex max-sm:justify-around"> 
             {
               showGptSearchKey && 
               <select onChange={handleLanguageChange} className="px-3 py-1 mr-3 bg-slate-500 rounded-lg text-white focus:outline-none">
@@ -70,7 +70,7 @@ const Header=()=>
 
             }
                 <button onClick={handleGptToggle} className="bg-blue-700 text-white rounded-lg px-3 py-1 h-8 text-center">{showGptSearchKey ? "Homepage" :"GPT Search"}</button>
-                <img className="w-10 m-4 h-10 rounded-xl" src={user.photoURL} alt="dummy"></img>
+                <img className="w-10 m-4 h-10 rounded-xl max-sm:hidden" src={user.photoURL} alt="dummy"></img>
                 <button onClick={handleSignOut} className="text-white font-bold mr-8">Sign out </button>
             </div>}
         </div>

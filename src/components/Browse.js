@@ -16,7 +16,6 @@ const Browse=()=>
     useUpcomingMovies();
 
     const showGptSearchKey=useSelector((store)=>store.gpt.showGptSearch)
-    console.log(showGptSearchKey);
         return (
             <div>
                 <Header/>

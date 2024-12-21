@@ -8,7 +8,7 @@ const SecondaryComponent=()=>
         <div className=" bg-black p-6">
             {
                 movies.nowPlayingMovies        &&   
-                <div className="relative -mt-56">
+                <div className="relative -mt-56 max-sm:-mt-20">
 
                   <Movielist title={"Now Playing Movies"} type="movies" movies={movies.nowPlayingMovies}/>
                   <Movielist title={"Popular Movies"} type="movies" movies={movies.popularMovies}/>
